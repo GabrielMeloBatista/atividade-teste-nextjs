@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+/.vscode
 
 # next.js
 /.next/
@@ -17,6 +18,7 @@
 
 # misc
 .DS_Store
+
 *.pem
 
 # debug
