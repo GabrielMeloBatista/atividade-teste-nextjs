@@ -1,28 +1,20 @@
+import { Delete, Edit } from '@mui/icons-material';
 import {
     Button,
-    Checkbox,
-    createStyles,
-    IconButton,
-    makeStyles,
-    Paper,
-    Snackbar,
-    Table,
+    Checkbox, IconButton, Paper, Table,
     TableBody,
     TableCell,
     TableContainer,
     TableHead,
-    TableRow,
-    Theme,
-    Typography,
+    TableRow
 } from '@mui/material';
-import { Delete, Edit } from '@mui/icons-material';
-import Link from 'next/link';
+import axios from 'axios';
 import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import Link from 'next/link';
+import React, { useState } from 'react';
 import GetRows from '../components/pages/GetRows';
 import ConfirmationDialog from '../components/screen/ConfirmationDialog';
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
     const rows = GetRows();
