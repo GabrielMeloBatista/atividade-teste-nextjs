@@ -14,8 +14,8 @@ import {
     TableRow,
     Theme,
     Typography,
-} from '@material-ui/core';
-import { Delete, Edit } from '@material-ui/icons';
+} from '@mui/material';
+import { Delete, Edit } from '@mui/icons-material';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
