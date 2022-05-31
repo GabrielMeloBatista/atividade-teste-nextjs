@@ -1,5 +1,4 @@
-import { ThemeProvider } from '@material-ui/core';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import theme from '../lib/theme';

@@ -1,26 +1,22 @@
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import {
     Box,
     Button,
-    Checkbox,
-    createStyles,
-    IconButton,
-    makeStyles,
-    Paper,
+    Checkbox, createMuiTheme, IconButton, Paper,
     TextField,
     Theme,
-    Typography,
-} from '@material-ui/core';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+    ThemeProvider,
+    Typography
+} from '@mui/material';
+import { createStyles, makeStyles } from '@mui/styles';
+import axios from 'axios';
 import { useFormik } from 'formik';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import * as Yup from 'yup';
-import { getAtividadeById } from '../GetRows'; //Criar getAtividadeById no GetTables
 import FormLoadingComponent from '../../screen/FormLoading';
-import axios from 'axios';
-import { boolean } from 'yup/lib/locale';
-import { redirect } from 'next/dist/server/api-utils';
+import { getAtividadeById } from '../GetRows'; //Criar getAtividadeById no GetTables
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -45,7 +41,7 @@ interface IFormData {
 }
 
 export default function AtividadeEdit() {
-    const classes = useStyles();
+    const theme = createMuiTheme();
     const [title, setTitle] = useState('Nova Atividade');
     const router = useRouter();
     const { id } = router.query;
@@ -74,7 +70,7 @@ export default function AtividadeEdit() {
             // }, 3000);
             axios
                 .put(
-                    'http://localhost:3030/genericCRUD?id_usuario=1&token=82yflie3czlqfqblbjv97x0a&table=atividades&id=' +
+                    'http://localhost:3030/genericCRUD?id_usuario=1&token=780rblxcnqozvg66tzq972p5q&table=atividades&id=' +
                         id,
                     values
                 )
@@ -100,11 +96,11 @@ export default function AtividadeEdit() {
                 });
             });
         }
-    },[]);
+    });
 
     return (
-        <>
-            <div className={classes.toolbar}>
+        <ThemeProvider theme={theme}>
+            <div>
                 <Link href="/" passHref>
                     <IconButton aria-label="Voltar">
                         <ArrowBackIcon />
@@ -116,7 +112,7 @@ export default function AtividadeEdit() {
             </div>
 
             <Box sx={{ display: 'flex' }}>
-                <Paper className={classes.form} elevation={3}>
+                <Paper elevation={3}>
                     <form noValidate onSubmit={formik.handleSubmit}>
                         <TextField
                             variant="outlined"
@@ -165,7 +161,6 @@ export default function AtividadeEdit() {
                         />
 
                         <Button
-                            className={classes.submit}
                             type="submit"
                             size="large"
                             variant="contained"
@@ -178,6 +173,6 @@ export default function AtividadeEdit() {
                     </form>
                 </Paper>
             </Box>
-        </>
+        </ThemeProvider>
     );
 }

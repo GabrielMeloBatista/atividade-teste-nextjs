@@ -14,7 +14,6 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import GetRows from '../components/pages/GetRows';
 import ConfirmationDialog from '../components/screen/ConfirmationDialog';
-import styles from '../styles/Home.module.css';
 
 export default function Home() {
     const rows = GetRows();
@@ -44,7 +43,7 @@ export default function Home() {
 
         if (value === 'ok') {
             // deleta
-            axios.delete('http://localhost:3030/genericCRUD?id_usuario=1&token=82yflie3czlqfqblbjv97x0a&table=atividades&id='+itemId);
+            axios.delete('http://localhost:3030/genericCRUD?id_usuario=1&token=780rblxcnqozvg66tzq972p5q&table=atividades&id='+itemId);
             
             setMessageInfo({
                 show: true,
@@ -57,8 +56,8 @@ export default function Home() {
     };
 
     return (
-        <div className={styles.container}>
-            <main className={styles.main}>
+        <div>
+            <main>
                 <TableContainer component={Paper}>
                     <Table aria-label="Atividades">
                         <TableHead>
@@ -128,14 +127,14 @@ export default function Home() {
                 </div>
             </main>
 
-            <footer className={styles.footer}>
+            <footer>
                 <a
                     href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
                     Powered by{' '}
-                    <span className={styles.logo}>
+                    <span>
                         <Image
                             src="/vercel.svg"
                             alt="Vercel Logo"
